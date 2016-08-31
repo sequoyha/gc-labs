@@ -61,11 +61,7 @@ public class GCLab {
                 break;
             case 3:
                 KevinSmithed ks = new KevinSmithed(session);
-                ks.getFat();
-                break;
-            case 4:
-                JNA jna = new JNA();
-                jna.overload();
+                ks.buyExtraSeat();
                 break;
             default:
                 System.out.println("Invalid argument for Lab #");

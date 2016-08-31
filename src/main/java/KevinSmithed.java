@@ -20,7 +20,7 @@ public class KevinSmithed {
         session = thisSession;
     }
 
-    public void getFat()
+    public void buyExtraSeat()
     {
         session.execute("CREATE TABLE IF NOT EXISTS garbage.collect_more (id int, step int, cc1 int, cc2 int, val1 int, val2 int, val3 int, val4 int, val5 int, " +
                 "val6 int, val7 int, val8 int, val9 int, val10 int, val11 int, val12 int, val13 int, val14 int,val15 int, val16 int, val17 int, " +
@@ -55,8 +55,6 @@ public class KevinSmithed {
                     }
                 }
             }
-
-            System.out.println("\nYou've been Batch slapped!!");
         } catch (Exception e) {
             System.out.println("\nError while inserting records:\n\t" + e.getMessage() +
                     "\n" + e.getStackTrace());
