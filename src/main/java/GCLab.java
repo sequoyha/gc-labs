@@ -62,6 +62,7 @@ public class GCLab {
             case 4:
                 GetLow getLow = new GetLow();
                 getLow.fuckUpGarbageCollector();
+                break;
             default:
                 System.out.println("Invalid argument for Lab #");
 
