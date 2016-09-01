@@ -31,7 +31,6 @@ public class DeathByTombstones {
     }
     public void delete()
     {
-        System.out.println("Deleting columns for all keys and step " + currentStep);
         while (this.getCurrentId() <=1000000)
         {
             this.setCurrentId(this.executeBatch(this.getCurrentId()));

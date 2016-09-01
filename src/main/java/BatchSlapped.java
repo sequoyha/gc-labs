@@ -23,24 +23,21 @@ public class BatchSlapped implements Runnable{
         currentKey = thisKey;
         endKey = thisEndKey;
     }
-    public void run() {
+    public void run()
+    {
         PreparedStatement ps = session.prepare("Insert into garbage.collection "
                 + "(id , step , val1 , val2 , val3 , val4 , val5 , " +
                 "val6 , val7 , val8 , val9 , val10 , val11 , val12 , val13 , val14 ,val15, val16 , val17 , " +
                 "val18 , val19 , val20 , val21 , val22 , val23 , val24 , val25 , val26 , val27 , " +
                 "val28 , val29 , val30) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
-        try {
-            System.out.println("\nYou're about to get Batch Slapped!!");
-
+        try
+        {
             Random r = new Random();
-            while (currentKey <= endKey) {
-                if (currentKey % 10 == 0) {
-                    System.out.print("\nInserting records for keys:");
-                }
+            while (currentKey <= endKey)
+            {
                 BatchStatement batchStatement = new BatchStatement();
-
-                System.out.print(" " + currentKey);
-                for (int steps = 1; steps < 1000; steps++) {
+                for (int steps = 1; steps < 1000; steps++)
+                {
                     BoundStatement bound = ps.bind(currentKey, steps, r.nextInt(), r.nextInt(), r.nextInt(), r.nextInt(), r.nextInt(),
                             r.nextInt(), r.nextInt(), r.nextInt(), r.nextInt(), r.nextInt(), r.nextInt(), r.nextInt(), r.nextInt(),
                             r.nextInt(), r.nextInt(), r.nextInt(), r.nextInt(), r.nextInt(), r.nextInt(), r.nextInt(), r.nextInt(),
@@ -50,8 +47,6 @@ public class BatchSlapped implements Runnable{
                 currentKey++;
                 session.execute(batchStatement);
             }
-
-            System.out.println("\nYou've been Batch slapped!!");
         } catch (Exception e) {
             System.out.println("\nError while inserting records:\n\t" + e.getMessage() +
                     "\n" + e.getStackTrace());

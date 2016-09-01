@@ -35,21 +35,20 @@ public class KevinSmithed {
         try
         {
             Random r = new Random();
-            for(int id = 1; id <=1000000; id++)
+            for (int steps = 1; steps < 1000; steps++)
             {
-                for (int steps = 1; steps < 1000; steps++)
+                for(int id = 1; id <=1000; id++)
                 {
                     for (int cluster1 = 1; cluster1 <1000; cluster1++)
                     {
                         BatchStatement batchStatement = new BatchStatement();
-                        for (int cluster2 = 1; cluster2 <1000; cluster2++)
+                        for (int cluster2 = 1; cluster2 <100; cluster2++)
                         {
                             BoundStatement bound = ps.bind(id, steps, cluster1, cluster2,r.nextInt(), r.nextInt(), r.nextInt(), r.nextInt(), r.nextInt(),
                                     r.nextInt(), r.nextInt(), r.nextInt(), r.nextInt(), r.nextInt(), r.nextInt(), r.nextInt(), r.nextInt(),
                                     r.nextInt(), r.nextInt(), r.nextInt(), r.nextInt(), r.nextInt(), r.nextInt(), r.nextInt(), r.nextInt(),
                                     r.nextInt(), r.nextInt(), r.nextInt(), r.nextInt(), r.nextInt(), r.nextInt(), r.nextInt(), r.nextInt(), r.nextInt());
                             batchStatement.add(bound);
-                            System.out.println(id + " " + steps + " " + cluster1 + " " + cluster2);
                         }
                         session.execute(batchStatement);
                     }

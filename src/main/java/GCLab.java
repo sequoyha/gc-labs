@@ -18,12 +18,11 @@ public class GCLab {
 
     public DseCluster CreateCluster(String nodeId)
     {
-        DseCluster dseCluster = null;
+        DseCluster dseCluster;
             dseCluster = DseCluster.builder()
                     .addContactPoint(nodeId)
                     .build();
             DseSession dseSession = dseCluster.connect();
-            Row row = dseSession.execute("select release_version from system.local").one();
 
             dseSession.execute("CREATE KEYSPACE IF NOT EXISTS garbage WITH replication = {'class': 'SimpleStrategy', '" +
                     "replication_factor': 3};");
@@ -32,7 +31,6 @@ public class GCLab {
                     "val6 int, val7 int, val8 int, val9 int, val10 int, val11 int, val12 int, val13 int, val14 int,val15 int, val16 int, val17 int, " +
                     "val18 int, val19 int, val20 int, val21 int, val22 int, val23 int, val24 int, val25 int, val26 int, val27 int, " +
                     "val28 int, val29 int, val30 int, primary key (id, step));");
-            System.out.println("Cassandra version: " + row.getString("release_version"));
             return dseCluster;
     }
     public DseSession ConnectToCluster(DseCluster dseCluster)
@@ -47,9 +45,7 @@ public class GCLab {
     }
     public void ChooseYourWeapon(Session session, String choice)
     {
-
-        int job = Integer.parseInt(choice);
-        switch (job)
+        switch (Integer.parseInt(choice.substring(choice.length()-1)))
         {
             case 1:
                 TombstoneHell t1 = new TombstoneHell(session);
@@ -65,6 +61,7 @@ public class GCLab {
                 break;
             default:
                 System.out.println("Invalid argument for Lab #");
+
         }
     }
 
