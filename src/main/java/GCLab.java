@@ -10,9 +10,9 @@ import com.datastax.driver.dse.DseSession;
 public class GCLab {
     public static void main(String[] args) {
         GCLab gc = new GCLab();
-        DseCluster cluster = gc.CreateCluster(args[0]);
+        DseCluster cluster = gc.CreateCluster("localhost");
         DseSession session = gc.ConnectToCluster(cluster);
-        gc.ChooseYourWeapon(session,args[1]);
+        gc.ChooseYourWeapon(session,args[0]);
         gc.CloseCluster(cluster);
     }
 
@@ -59,6 +59,9 @@ public class GCLab {
                 KevinSmithed ks = new KevinSmithed(session);
                 ks.buyExtraSeat();
                 break;
+            case 4:
+                GetLow getLow = new GetLow();
+                getLow.fuckUpGarbageCollector();
             default:
                 System.out.println("Invalid argument for Lab #");
 
