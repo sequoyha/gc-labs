@@ -9,7 +9,7 @@ public class GetLow
     {
         try
         {
-            String[] cmd = {"/bin/bash","-c","echo password| sudo -S /home/support/gc-labs/bash/gc_config_changes"};
+            String[] cmd = {"/bin/bash","-c","echo password| sudo -S /home/support/.gc-labs/bash/gc_config_changes"};
             Process pb = Runtime.getRuntime().exec(cmd);
         }catch (Exception e)
         {
