@@ -2,6 +2,9 @@
 
 FILE='/etc/dse/cassandra/jvm.options'
 
+echo "DROP KEYSPACE keyspace1;" | cqlsh
+rm -rf /var/lib/cassandra/data/keyspace1
+
 sed -i s/^#-XX:+UseParNewGC/-XX:+UseParNewGC/ $FILE
 sed -i s/^#-XX:+UseConcMarkSweepGC/-XX:+UseConcMarkSweepGC/ $FILE
 sed -i s/^#-XX:+CMSParallelRemarkEnabled/-XX:+CMSParallelRemarkEnabled/ $FILE
