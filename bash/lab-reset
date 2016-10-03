@@ -1,5 +1,5 @@
 #!/bin/bash
-
+#This needs to be placed in /usr/local/bin for execution
 exercise=$1
 
 if (( $EUID != 0 )); then
