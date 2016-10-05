@@ -59,6 +59,9 @@ public class GCLab {
                 KevinSmithed ks = new KevinSmithed(session);
                 ks.buyExtraSeat();
                 break;
+            case 4:
+                Hell hell = new Hell();
+                hell.unleashHell(session);
             default:
                 System.out.println("Invalid argument for Lab #");
 
