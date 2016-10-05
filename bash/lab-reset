@@ -7,7 +7,9 @@ if (( $EUID != 0 )); then
     exit
 fi
 
-if [ $exercise = "ex2" ]; then
+if [ $exercise = "ex1" ]; then
+	`/gc-labs/bash/jvm_changes/ex1`
+elif [ $exercise = "ex2" ]; then
 	`/gc-labs/bash/jvm_changes/ex2`
 elif [ $exercise = "ex3" ]; then
 	`/gc-labs/bash/jvm_changes/ex3`
