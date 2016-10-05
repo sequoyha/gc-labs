@@ -1,23 +1,9 @@
 #!/bin/bash
 
-FILE='/etc/dse/cassandra/jvm.options'
+echo "DROP KEYSPACE garbage;" | cqlsh
+rm -rf /var/lib/cassandra/data/garbage
 
-echo "DROP KEYSPACE keyspace1;" | cqlsh
-rm -rf /var/lib/cassandra/data/keyspace1
-
-sed -i s/^#-XX:+UseParNewGC/-XX:+UseParNewGC/ $FILE
-sed -i s/^#-XX:+UseConcMarkSweepGC/-XX:+UseConcMarkSweepGC/ $FILE
-sed -i s/^#-XX:+CMSParallelRemarkEnabled/-XX:+CMSParallelRemarkEnabled/ $FILE
-sed -i s/^#-XX:SurvivorRatio=8/-XX:SurvivorRatio=2/ $FILE
-sed -i s/^#-XX:MaxTenuringThreshold=1/-XX:MaxTenuringThreshold=1/ $FILE
-sed -i s/^#-XX:CMSInitiatingOccupancyFraction=75/-XX:CMSInitiatingOccupancyFraction=75/ $FILE
-sed -i s/^#-XX:+UseCMSInitiatingOccupancyOnly/-XX:+UseCMSInitiatingOccupancyOnly/ $FILE
-sed -i s/^#-XX:CMSWaitDuration=10000/-XX:CMSWaitDuration=10000/ $FILE
-sed -i s/^#-XX:+CMSParallelInitialMarkEnabled/-XX:+CMSParallelInitialMarkEnabled/ $FILE
-sed -i s/^#-XX:+CMSEdenChunksRecordAlways/-XX:+CMSEdenChunksRecordAlways/ $FILE
-
-sed -i s/-XX:+UseG1GC/#-XX:+UseG1GC/ $FILE
-sed -i s/-XX:G1RSetUpdatingPauseTimePercent=5/#-XX:G1RSetUpdatingPauseTimePercent=5/ $FILE
-sed -i s/-XX:MaxGCPauseMillis=500/#-XX:MaxGCPauseMillis=500/ $FILE
+cp /gc-labs/bash/conf/ex4/jvm.options /etc/dse/cassandra
+cp /gc-labs/bash/conf/ex4/cassandra-env.sh /etc/dse/cassandra
 
 shutdown -r now

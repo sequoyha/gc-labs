@@ -1,0 +1,9 @@
+#!/bin/bash
+
+echo "DROP KEYSPACE garbage;" | cqlsh
+rm -rf /var/lib/cassandra/data/garbage
+
+cp /gc-labs/bash/conf/ex5/jvm.options /etc/dse/cassandra
+cp /gc-labs/bash/conf/ex5/cassandra-env.sh /etc/dse/cassandra
+
+shutdown -r now
