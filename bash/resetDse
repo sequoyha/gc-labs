@@ -1,5 +1,0 @@
-#!/bin/bash
-
-PROCESS="ps -ef | grep dse | grep -v color | awk '{print $2}'"
-if [ -z $PROCESS]
-rm -rf /var/lib/cassandra/data/* /var/lib/cassandra/commitlog/* /var/lib/cassandra/saved_caches/*
