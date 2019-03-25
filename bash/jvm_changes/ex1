@@ -3,8 +3,8 @@
 
 echo "DROP KEYSPACE keyspace1;" | cqlsh
 echo "DROP KEYSPACE garbage;" | cqlsh
-rm -rf /var/lib/cassandra/data/keyspace1
-rm -rf /var/lib/cassandra/data/garbage
+rm -rf /var/lib/cassandra/data/keyspace1*
+rm -rf /var/lib/cassandra/data/garbage*
 
 cp /gc-labs/bash/conf/ex1/jvm.options /etc/dse/cassandra
 cp /gc-labs/bash/conf/ex1/cassandra-env.sh /etc/dse/cassandra
