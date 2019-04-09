@@ -7,7 +7,7 @@ echo "DROP KEYSPACE garbage;" | cqlsh
 rm -rf /mnt/cass_data_disks/data1/data/keyspace1*
 rm -rf /mnt/cass_data_disks/data1/data/garbage*
 
-cp /home/automaton/gc-labs/bash/conf/ex2/jvm.options /etc/dse/cassandra
-cp /home/automaton/gc-labs/bash/conf/ex2/cassandra-env.sh /etc/dse/cassandra
+cp /home/automaton/.gc-labs/bash/conf/ex2/jvm.options /etc/dse/cassandra
+cp /home/automaton/.gc-labs/bash/conf/ex2/cassandra-env.sh /etc/dse/cassandra
 
 shutdown -r now

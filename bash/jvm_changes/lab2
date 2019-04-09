@@ -5,7 +5,7 @@ FILE='/etc/dse/cassandra/jvm.options'
 echo "DROP KEYSPACE keyspace1;" | cqlsh
 rm -rf /mnt/cass_data_disks/data1/data/keyspace1*
 
-cp /home/automaton/gc-labs/bash/conf/lab2/jvm.options /etc/dse/cassandra
-cp /home/automaton/gc-labs/bash/conf/lab2/cassandra-env.sh /etc/dse/cassandra
+cp /home/automaton/.gc-labs/bash/conf/lab2/jvm.options /etc/dse/cassandra
+cp /home/automaton/.gc-labs/bash/conf/lab2/cassandra-env.sh /etc/dse/cassandra
 
 shutdown -r now
